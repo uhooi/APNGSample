@@ -1,0 +1,42 @@
+name: APNGSample
+
+options:
+  bundleIdPrefix: com.theuhooi
+  deploymentTarget:
+    iOS: 13.5
+  carthageExecutablePath: mint run Carthage/Carthage carthage
+
+targets:
+  APNGSample:
+    type: application
+    platform: iOS
+    sources:
+      - APNGSample
+    settings:
+      base:
+        MARKETING_VERSION: 0.1.0
+        CURRENT_PROJECT_VERSION: 1
+        DEVELOPMENT_TEAM: 47E56DYP3N
+        INFOPLIST_FILE: APNGSample/Info.plist
+        DEVELOPMENT_LANGUAGE: jp
+    dependencies:
+      - carthage: APNGKit
+
+schemes:
+  APNGSample:
+    build:
+      targets:
+        APNGSample: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - APNGSample
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
